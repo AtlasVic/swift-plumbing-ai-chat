@@ -187,3 +187,7 @@ MIT License - Feel free to use this as a reference or starting point for your ow
 - Branch protection requires GitHub Pro for private repos
 - The AI uses RAG to stay on-topic - it won't answer questions unrelated to the business
 - Images were generated using MiniMax Image API
+
+## Author
+
+Victor Gutierrez
