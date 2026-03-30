@@ -17,7 +17,7 @@ class ChatResponse(BaseModel):
 async def chat(request: ChatRequest):
     """Send a message to the AI and get a response using RAG"""
     if not request.message.strip():
-        raise HTTPException(status_code=400, message="Message cannot be empty")
+        raise HTTPException(status_code=400, detail="Message cannot be empty")
     
     try:
         response = await get_chat_response(

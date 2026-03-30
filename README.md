@@ -11,7 +11,7 @@ A full-stack local business website with an RAG-powered AI chatbot built with Ne
 
 ## Tech Stack
 
-- **Frontend:** Next.js 14, TypeScript, Tailwind CSS
+- **Frontend:** Next.js 16, TypeScript, Tailwind CSS
 - **Backend:** FastAPI (Python)
 - **AI:** Anthropic Claude Haiku (or OpenAI GPT-4o-mini)
 - **RAG:** Custom embedding + cosine similarity search
@@ -29,7 +29,7 @@ A full-stack local business website with an RAG-powered AI chatbot built with Ne
 #### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/kratyxdev/swift-plumbing-ai-chat.git
+git clone https://github.com/AtlasVic/swift-plumbing-ai-chat.git
 cd swift-plumbing-ai-chat
 ```
 
@@ -41,7 +41,7 @@ npm install
 npm run dev
 ```
 
-The frontend runs at `http://localhost:3005`
+The frontend runs at `http://localhost:3000`
 
 #### 3. Backend Setup
 
@@ -62,8 +62,7 @@ pip install -r requirements.txt
 echo "ANTHROPIC_API_KEY=your-api-key-here" > .env
 
 # Run the server
-cd app
-python -m uvicorn main:app --reload --port 8000
+uvicorn app.main:app --reload
 ```
 
 The backend runs at `http://localhost:8000`
