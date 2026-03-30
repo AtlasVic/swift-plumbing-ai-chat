@@ -52,14 +52,20 @@ cd backend
 
 # Create virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Activate — Mac/Linux:
+source venv/bin/activate
+# Activate — Windows CMD:
+# venv\Scripts\activate.bat
+# Activate — Windows PowerShell:
+# venv\Scripts\Activate.ps1
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Configure API Key (REQUIRED)
-# Create a .env file:
-echo "ANTHROPIC_API_KEY=your-api-key-here" > .env
+# Create a file named .env in the backend/ directory with this content:
+#   ANTHROPIC_API_KEY=your-api-key-here
 
 # Run the server
 uvicorn app.main:app --reload
@@ -80,21 +86,23 @@ docker-compose up
 
 ### API Key Configuration
 
-You need an API key to enable AI responses. The backend will return fallback responses without a key.
+You need at least one API key to enable AI responses. The backend will return a fallback message without a key.
 
-**Using Anthropic (Recommended):**
+The backend auto-detects which provider to use based on which key is present. `ANTHROPIC_API_KEY` takes priority if both are set.
 
-```bash
-# In backend/.env
+**Anthropic (Claude Haiku):**
+
+```
+# backend/.env
 ANTHROPIC_API_KEY=sk-ant-api03-xxxxxxxxxxxxxxxx
 ```
 
 Get your key at: https://console.anthropic.com/
 
-**Using OpenAI:**
+**OpenAI (GPT-4o mini):**
 
-```bash
-# In backend/.env
+```
+# backend/.env
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxx
 ```
 
@@ -104,10 +112,8 @@ Get your key at: https://platform.openai.com/api-keys
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `ANTHROPIC_API_KEY` | Yes* | Anthropic API key for Claude Haiku |
-| `OPENAI_API_KEY` | Yes* | OpenAI API key (alternative to Anthropic) |
-
-*At least one AI provider key is required.
+| `ANTHROPIC_API_KEY` | One of these | Anthropic API key — uses Claude Haiku |
+| `OPENAI_API_KEY` | is required | OpenAI API key — uses GPT-4o mini |
 
 ## Project Structure
 
